@@ -1,0 +1,76 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "rules",
+  "version": "0.1.0",
+  "identifier": "com.chicho.rules",
+  "build": {
+    "beforeDevCommand": "pnpm dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "pnpm build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "widget",
+        "title": "20Twenty",
+        "width": 300,
+        "height": 200,
+        "resizable": false,
+        "maximizable": false,
+        "decorations": false,
+        "alwaysOnTop": true,
+        "visible": false
+      },
+      {
+        "label": "settings",
+        "title": "Configuración",
+        "width": 760,
+        "height": 680,
+        "visible": false,
+        "decorations": false,
+        "maximizable": false
+      },
+      {
+        "label": "break",
+        "title": "Descanso visual",
+        "width": 700,
+        "height": 500,
+        "resizable": false,
+        "maximizable": false,
+        "decorations": false,
+        "alwaysOnTop": true,
+        "focus": false,
+        "focusable": false,
+        "center": true,
+        "visible": false
+      },
+      {
+        "label": "exit",
+        "title": "Salir",
+        "width": 360,
+        "height": 220,
+        "resizable": false,
+        "maximizable": false,
+        "decorations": false,
+        "alwaysOnTop": true,
+        "center": true,
+        "visible": false
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/twenty32x32.png",
+      "icons/twenty128x128.png",
+      "icons/twenty128x128@2x.png",
+      "icons/icon.icns",
+      "icons/twenty-icon.ico"
+    ]
+  }
+}
