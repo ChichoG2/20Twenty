@@ -16,7 +16,6 @@ interface TimerStore {
     pause: () => void;
     reset: () => void;
     updateRemaining: () => void;
-    startWork: () => void;
     startBreak: () => void;
     syncWithSettings: () => void;
 }
@@ -69,12 +68,6 @@ export const useTimerStore = create<TimerStore>((set, get) => ({
         set({ status: "idle", previousMode: null, endsAt: null, remainingSeconds: workDuration, });
     },
 
-    startWork: () => {
-        const { workDuration } = useSettingsStore.getState();
-
-        set({ status: "working", previousMode: null, remainingSeconds: workDuration, endsAt: Date.now() + workDuration * 1000, });
-    },
-
     startBreak: () => {
         const { breakDuration } = useSettingsStore.getState();
 
@@ -82,7 +75,7 @@ export const useTimerStore = create<TimerStore>((set, get) => ({
     },
 
     updateRemaining: () => {
-        const { endsAt, status, startWork, startBreak, } = get();
+        const { endsAt, status, startBreak, } = get();
 
         if (!endsAt) {
             return;
